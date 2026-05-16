@@ -21,3 +21,15 @@ Python · Pandas · NumPy · Matplotlib · Seaborn · Scikit-learn
 1. Clone the repo
 2. Install requirements: `pip install -r requirements.txt`
 3. Open `EDA_Notebook.ipynb` in Jupyter
+
+## Data
+
+| Dataset | Source | Status |
+|---|---|---|
+| Titanic | [Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset) | `data/titanic_cleaned.csv` included |
+| IMDB 50K Reviews | [Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews) | Not included (60MB) — regenerate below |
+
+### Regenerating the IMDB cleaned dataset
+1. Download `IMDB_Dataset.csv` from the Kaggle link above
+2. Place it in the `data/` folder
+3. Run all cells in `EDA_Notebook.ipynb` — it will produce `imdb_cleaned.csv` automatically
