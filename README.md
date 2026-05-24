@@ -1,35 +1,59 @@
-# AnalystLab Africa ML Internship — Week 1-2
-## Data Preprocessing & Exploratory Data Analysis
+# AnalystLab Africa — Machine Learning Internship
 
-### Datasets
-- [Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset) — 891 rows, 12 features
-- [IMDB Reviews Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews) — 50,000 reviews
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Status](https://img.shields.io/badge/Status-In%20Progress-green)
 
-### Tools Used
-Python · Pandas · NumPy · Matplotlib · Seaborn · Scikit-learn
+A structured machine learning internship program by AnalystLab Africa.
+This repository documents my weekly progress, code, and findings.
+
+---
+
+## 📁 Repository Structure
+
+| Week | Topic | Folder |
+|---|---|---|
+| Week 1-2 | Data Preprocessing & EDA | `week1-2-eda/` |
+| Week 3 | Machine Learning Fundamentals | `week3-ml-fundamentals/` |
+
+---
+
+## Week 1-2: Data Preprocessing & EDA
+**Datasets:** Titanic | IMDB 50K Reviews  
+**Notebook:** [EDA_Notebook.ipynb](week1-2-eda/EDA_Notebook.ipynb)
 
 ### Key Findings
-- Women on the Titanic survived at 74% vs. 19% for men
-- 1st class passengers had 63% survival vs. 24% in 3rd class
-- IMDB dataset is perfectly balanced (50/50 positive/negative)
+- Women on the Titanic survived at 74% vs 19% for men
+- IMDB dataset is perfectly balanced — 25,000 positive, 25,000 negative
+- Cabin column dropped (77% missing); Age imputed with median
 
-### EDA Visuals
-![Titanic EDA](images/titanic_eda.png)
-![IMDB EDA](images/imdb_eda.png)
+![Titanic EDA](week1-2-eda/images/titanic_eda.png)
 
-### How to Run
-1. Clone the repo
-2. Install requirements: `pip install -r requirements.txt`
-3. Open `EDA_Notebook.ipynb` in Jupyter
+---
 
-## Data
+## Week 3: Machine Learning Fundamentals
+**Datasets:** Titanic | IMDB 50K Reviews  
+**Notebook:** [Week3_ML_Fundamentals.ipynb](week3-ml-fundamentals/Week3_ML_Fundamentals.ipynb)
 
-| Dataset | Source | Status |
-|---|---|---|
-| Titanic | [Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset) | `data/titanic_cleaned.csv` included |
-| IMDB 50K Reviews | [Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews) | Not included (60MB) — regenerate below |
+### Key Results
+| Model | Accuracy |
+|---|---|
+| Logistic Regression | 80.45% |
+| Decision Tree (depth=4) | 78.77% |
+| Random Forest | 81.56% |
+| IMDB Sentiment (TF-IDF + LR) | 86.40% |
 
-### Regenerating the IMDB cleaned dataset
-1. Download `IMDB_Dataset.csv` from the Kaggle link above
-2. Place it in the `data/` folder
-3. Run all cells in `EDA_Notebook.ipynb` — it will produce `imdb_cleaned.csv` automatically
+![Model Comparison](week3-ml-fundamentals/images/model_comparison.png)
+
+---
+
+## 🛠 Tools & Libraries
+Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter
+
+## ▶ How to Run
+1. Clone the repo: `git clone https://github.com/YOUR_USERNAME/analystlab-ml-internship.git`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Open any notebook in Jupyter and run all cells
+
+## 📂 Data Sources
+- [Titanic Dataset — Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
+- [IMDB 50K Reviews — Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
