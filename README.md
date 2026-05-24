@@ -55,5 +55,5 @@ Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter
 3. Open any notebook in Jupyter and run all cells
 
 ## 📂 Data Sources
-- [Titanic Dataset — Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
-- [IMDB 50K Reviews — Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
+- [Titanic Dataset — Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset) — `titanic_cleaned.csv` included in repo
+- [IMDB 50K Reviews — Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews) — raw file not included (60MB); download from Kaggle and run the notebook to regenerate `imdb_cleaned.csv`
