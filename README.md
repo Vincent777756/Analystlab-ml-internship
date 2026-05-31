@@ -24,7 +24,7 @@ Machine Learning Internship Program.
 
 **Key Findings:**
 - Women on the Titanic survived at 74% vs 19% for men
-- IMDB dataset is perfectly balanced — 25,000 positive, 25,000 negative
+- IMDB dataset is perfectly balanced 25,000 positive, 25,000 negative
 - Cabin dropped (77% missing); Age imputed with median
 
 ![Titanic EDA](week1-2-eda/images/titanic_eda.png)
