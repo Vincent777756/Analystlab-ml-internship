@@ -15,16 +15,17 @@ Machine Learning Internship Program.
 | Week 1-2 | Data Preprocessing & EDA | `week1-2-eda/` | ✅ Complete |
 | Week 3 | Machine Learning Fundamentals | `week3-ml-fundamentals/` | ✅ Complete |
 | Week 4 | Supervised Learning | `week4-supervised-learning/` | ✅ Complete |
+| Week 5 | Advanced Machine Learning | `week5-advanced-ml/` | ✅ Complete |
 
 ---
 
 ## Week 1-2: Data Preprocessing & EDA
-**Notebook:** [EDA_Notebook.ipynb](week1-2-eda/EDA_Notebook.ipynb)  
+**Notebook:** [EDA_Notebook.ipynb](week1-2-eda/EDA_Notebook.ipynb)
 **Datasets:** Titanic | IMDB 50K Reviews
 
 **Key Findings:**
 - Women on the Titanic survived at 74% vs 19% for men
-- IMDB dataset is perfectly balanced 25,000 positive, 25,000 negative
+- IMDB dataset is perfectly balanced — 25,000 positive, 25,000 negative
 - Cabin dropped (77% missing); Age imputed with median
 
 ![Titanic EDA](week1-2-eda/images/titanic_eda.png)
@@ -47,7 +48,7 @@ Machine Learning Internship Program.
 ---
 
 ## Week 4: Supervised Learning
-**Notebook:** [Week4_Supervised_Learning.ipynb](week4-supervised-learning/Week4_Supervised_Learning.ipynb)  
+**Notebook:** [Week4_Supervised_Learning.ipynb](week4-supervised-learning/Week4_Supervised_Learning.ipynb)
 **Report:** [Week4_Evaluation_Report.docx](week4-supervised-learning/Week4_Evaluation_Report.docx)
 
 **Task 1 — Linear Regression (Boston Housing)**
@@ -62,11 +63,32 @@ Machine Learning Internship Program.
 
 ---
 
+## Week 5: Advanced Machine Learning
+**Notebook:** [Week5_Advanced_ML.ipynb](week5-advanced-ml/Week5_Advanced_ML.ipynb)
+**Report:** [Week5_Performance_Report.docx](week5-advanced-ml/Week5_Performance_Report.docx)
+
+**Models trained and compared:**
+| Model | Test Accuracy | CV Accuracy |
+|---|---|---|
+| Decision Tree | 82.12% | 77.26% |
+| Random Forest | 80.45% | 78.39% |
+| Gradient Boosting | 79.89% | 81.19% |
+| RF Tuned (GridSearch) | 78.77% | 82.88% |
+| GB Tuned (GridSearch) | 79.89% | 82.60% |
+
+**Best model:** Tuned Random Forest — highest CV accuracy (82.88%), most reliable generalisation
+
+**Key insight:** Cross-validation accuracy is a more trustworthy evaluation metric than single test accuracy. The Decision Tree had the highest test accuracy but the lowest CV score — a sign of overfitting.
+
+![CV Comparison](week5-advanced-ml/images/week5_cv_comparison.png)
+
+---
+
 ## 🛠 Tools & Libraries
 Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter
 
 ## ▶ How to Run
-1. Clone: `git clone https://github.com/Vincent777756/analystlab-ml-internship.git`
+1. Clone: `git clone https://github.com/YOUR_USERNAME/analystlab-ml-internship.git`
 2. Install: `pip install -r requirements.txt`
 3. Open any notebook in Jupyter and run all cells
 
