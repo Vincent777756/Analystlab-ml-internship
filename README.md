@@ -105,7 +105,7 @@ Machine Learning Internship Program.
 Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter
 
 ## ▶ How to Run
-1. Clone: `git clone https://github.com/YOUR_USERNAME/analystlab-ml-internship.git`
+1. Clone: `git clone https://github.com/vincent777756/analystlab-ml-internship.git`
 2. Install: `pip install -r requirements.txt`
 3. Open any notebook in Jupyter and run all cells
 
