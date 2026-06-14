@@ -16,6 +16,7 @@ Machine Learning Internship Program.
 | Week 3 | Machine Learning Fundamentals | `week3-ml-fundamentals/` | ✅ Complete |
 | Week 4 | Supervised Learning | `week4-supervised-learning/` | ✅ Complete |
 | Week 5 | Advanced Machine Learning | `week5-advanced-ml/` | ✅ Complete |
+| Week 6 | Model Tuning & Validation | `week6-model-tuning/` | ✅ Complete |
 
 ---
 
@@ -53,11 +54,9 @@ Machine Learning Internship Program.
 
 **Task 1 — Linear Regression (Boston Housing)**
 - RMSE: $5.14k | R²: 0.64
-- Top features: rooms (↑ price), lower-status % (↓ price)
 
 **Task 2 — Logistic Regression (Titanic)**
 - Accuracy: 80.45%
-- Gender was the strongest survival predictor
 
 ![Regression Results](week4-supervised-learning/images/regression_results.png)
 
@@ -67,7 +66,7 @@ Machine Learning Internship Program.
 **Notebook:** [Week5_Advanced_ML.ipynb](week5-advanced-ml/Week5_Advanced_ML.ipynb)
 **Report:** [Week5_Performance_Report.docx](week5-advanced-ml/Week5_Performance_Report.docx)
 
-**Models trained and compared:**
+**Models trained and compared on Titanic:**
 | Model | Test Accuracy | CV Accuracy |
 |---|---|---|
 | Decision Tree | 82.12% | 77.26% |
@@ -76,11 +75,29 @@ Machine Learning Internship Program.
 | RF Tuned (GridSearch) | 78.77% | 82.88% |
 | GB Tuned (GridSearch) | 79.89% | 82.60% |
 
-**Best model:** Tuned Random Forest — highest CV accuracy (82.88%), most reliable generalisation
-
-**Key insight:** Cross-validation accuracy is a more trustworthy evaluation metric than single test accuracy. The Decision Tree had the highest test accuracy but the lowest CV score — a sign of overfitting.
+**Best model:** Tuned Random Forest — highest CV accuracy (82.88%)
 
 ![CV Comparison](week5-advanced-ml/images/week5_cv_comparison.png)
+
+---
+
+## Week 6: Model Tuning & Validation
+**Notebook:** [Week6_Model_Tuning_Validation.ipynb](week6-model-tuning/Week6_Model_Tuning_Validation.ipynb)
+**Report:** [Week6_Validation_Report.docx](week6-model-tuning/Week6_Validation_Report.docx)
+**Dataset:** Pima Indians Diabetes Database
+
+**Results:**
+| Model | CV Accuracy |
+|---|---|
+| Baseline (Random Forest) | 76.38% ± 2.14% |
+| Grid Search Tuned | 78.01% ± 2.58% |
+| Random Search Tuned | 78.18% ± 2.38% |
+
+**Best hyperparameters (Grid and Random Search agreed):** max_depth=6, max_features=log2
+
+**Key insight:** Cross-validation accuracy improved after tuning even though single test-set accuracy dropped — CV is the reliable selection metric. The bias-variance curve confirmed depth=6 as the optimal balance point between underfitting and overfitting.
+
+![Bias-Variance Tradeoff](week6-model-tuning/images/week6_bias_variance.png)
 
 ---
 
@@ -96,3 +113,4 @@ Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter
 - [Titanic — Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset) — included
 - [IMDB 50K Reviews — Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews) — not included (60MB), download and run notebook to regenerate
 - [Boston Housing — GitHub](https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv) — included
+- [Pima Indians Diabetes — Kaggle](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database) — included
