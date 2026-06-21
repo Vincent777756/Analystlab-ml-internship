@@ -33,7 +33,7 @@ python app.py
 python test_api.py
 ```
 
-The API will be live at `http://127.0.0.1:5000`.
+The API will be live at `http://127.0.0.1:8000`.
 
 ## What This Demonstrates
 
