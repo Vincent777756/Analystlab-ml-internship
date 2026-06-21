@@ -17,6 +17,7 @@ Machine Learning Internship Program.
 | Week 4 | Supervised Learning | `week4-supervised-learning/` | ✅ Complete |
 | Week 5 | Advanced Machine Learning | `week5-advanced-ml/` | ✅ Complete |
 | Week 6 | Model Tuning & Validation | `week6-model-tuning/` | ✅ Complete |
+| Week 7 | Model Deployment | `Week-7-deployment/` | ✅ Complete |
 
 ---
 
@@ -24,10 +25,7 @@ Machine Learning Internship Program.
 **Notebook:** [EDA_Notebook.ipynb](week1-2-eda/EDA_Notebook.ipynb)
 **Datasets:** Titanic | IMDB 50K Reviews
 
-**Key Findings:**
-- Women on the Titanic survived at 74% vs 19% for men
-- IMDB dataset is perfectly balanced — 25,000 positive, 25,000 negative
-- Cabin dropped (77% missing); Age imputed with median
+Women on the Titanic survived at 74% vs 19% for men. IMDB dataset is perfectly balanced — 25,000 positive, 25,000 negative.
 
 ![Titanic EDA](week1-2-eda/images/titanic_eda.png)
 
@@ -36,11 +34,9 @@ Machine Learning Internship Program.
 ## Week 3: Machine Learning Fundamentals
 **Notebook:** [Week3_ML_Fundamentals.ipynb](week3-ml-fundamentals/Week3_ML_Fundamentals.ipynb)
 
-**Key Results:**
 | Model | Accuracy |
 |---|---|
 | Logistic Regression | 80.45% |
-| Decision Tree (depth=4) | 78.77% |
 | Random Forest | 81.56% |
 | IMDB Sentiment (TF-IDF + LR) | 86.40% |
 
@@ -50,13 +46,9 @@ Machine Learning Internship Program.
 
 ## Week 4: Supervised Learning
 **Notebook:** [Week4_Supervised_Learning.ipynb](week4-supervised-learning/Week4_Supervised_Learning.ipynb)
-**Report:** [Week4_Evaluation_Report.docx](week4-supervised-learning/Week4_Evaluation_Report.docx)
 
-**Task 1 — Linear Regression (Boston Housing)**
-- RMSE: $5.14k | R²: 0.64
-
-**Task 2 — Logistic Regression (Titanic)**
-- Accuracy: 80.45%
+**Linear Regression (Boston Housing):** RMSE $5.14k, R² 0.64
+**Logistic Regression (Titanic):** Accuracy 80.45%
 
 ![Regression Results](week4-supervised-learning/images/regression_results.png)
 
@@ -64,18 +56,13 @@ Machine Learning Internship Program.
 
 ## Week 5: Advanced Machine Learning
 **Notebook:** [Week5_Advanced_ML.ipynb](week5-advanced-ml/Week5_Advanced_ML.ipynb)
-**Report:** [Week5_Performance_Report.docx](week5-advanced-ml/Week5_Performance_Report.docx)
 
-**Models trained and compared on Titanic:**
-| Model | Test Accuracy | CV Accuracy |
-|---|---|---|
-| Decision Tree | 82.12% | 77.26% |
-| Random Forest | 80.45% | 78.39% |
-| Gradient Boosting | 79.89% | 81.19% |
-| RF Tuned (GridSearch) | 78.77% | 82.88% |
-| GB Tuned (GridSearch) | 79.89% | 82.60% |
-
-**Best model:** Tuned Random Forest — highest CV accuracy (82.88%)
+| Model | CV Accuracy |
+|---|---|
+| Decision Tree | 77.26% |
+| Random Forest | 78.39% |
+| Gradient Boosting | 81.19% |
+| RF Tuned (GridSearch) | 82.88% |
 
 ![CV Comparison](week5-advanced-ml/images/week5_cv_comparison.png)
 
@@ -83,31 +70,52 @@ Machine Learning Internship Program.
 
 ## Week 6: Model Tuning & Validation
 **Notebook:** [Week6_Model_Tuning_Validation.ipynb](week6-model-tuning/Week6_Model_Tuning_Validation.ipynb)
-**Report:** [Week6_Validation_Report.docx](week6-model-tuning/Week6_Validation_Report.docx)
 **Dataset:** Pima Indians Diabetes Database
 
-**Results:**
 | Model | CV Accuracy |
 |---|---|
 | Baseline (Random Forest) | 76.38% ± 2.14% |
 | Grid Search Tuned | 78.01% ± 2.58% |
 | Random Search Tuned | 78.18% ± 2.38% |
 
-**Best hyperparameters (Grid and Random Search agreed):** max_depth=6, max_features=log2
-
-**Key insight:** Cross-validation accuracy improved after tuning even though single test-set accuracy dropped — CV is the reliable selection metric. The bias-variance curve confirmed depth=6 as the optimal balance point between underfitting and overfitting.
+Cross-validation accuracy improved after tuning even though single test-set accuracy dropped — CV is the reliable selection metric.
 
 ![Bias-Variance Tradeoff](week6-model-tuning/images/week6_bias_variance.png)
 
 ---
 
+## Week 7: Model Deployment
+**Source code:** [Week-7-deployment/app.py](Week-7-deployment/app.py)
+**Documentation:** [API_DOCUMENTATION.md](Week-7-deployment/API_DOCUMENTATION.md)
+
+The Week 6 tuned Random Forest model was deployed as a REST API using Flask. The model, scaler, and imputer are saved with `joblib` and loaded at startup, so predictions run without retraining.
+
+**Endpoints:**
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/` | GET | API info |
+| `/health` | GET | Status check |
+| `/model-info` | GET | Model metrics and feature details |
+| `/predict` | POST | Send patient data, get a diabetes risk prediction |
+
+**Example prediction:** a patient profile with Glucose=148, BMI=33.6, Age=50 returns `"prediction_label": "Diabetes"` with 67.9% probability.
+
+Run locally:
+```bash
+cd Week-7-deployment
+pip install -r requirements.txt
+python app.py
+```
+
+---
+
 ## 🛠 Tools & Libraries
-Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter
+Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter · Flask · Joblib
 
 ## ▶ How to Run
-1. Clone: `git clone https://github.com/vincent777756/analystlab-ml-internship.git`
+1. Clone: `git clone https://github.com/vincent777756/Analystlab-ml-internship.git`
 2. Install: `pip install -r requirements.txt`
-3. Open any notebook in Jupyter and run all cells
+3. Open any notebook in Jupyter and run all cells, or see Week 7 for the deployed API
 
 ## 📂 Data Sources
 - [Titanic — Kaggle](https://www.kaggle.com/datasets/yasserh/titanic-dataset) — included
