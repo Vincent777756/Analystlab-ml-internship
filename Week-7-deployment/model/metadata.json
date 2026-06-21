@@ -1,0 +1,61 @@
+{
+  "feature_names": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "feature_ranges": {
+    "Pregnancies": {
+      "min": 0.0,
+      "max": 17.0,
+      "mean": 3.8450520833333335
+    },
+    "Glucose": {
+      "min": 44.0,
+      "max": 199.0,
+      "mean": 121.65625
+    },
+    "BloodPressure": {
+      "min": 24.0,
+      "max": 122.0,
+      "mean": 72.38671875
+    },
+    "SkinThickness": {
+      "min": 7.0,
+      "max": 99.0,
+      "mean": 29.108072916666668
+    },
+    "Insulin": {
+      "min": 14.0,
+      "max": 846.0,
+      "mean": 140.671875
+    },
+    "BMI": {
+      "min": 18.2,
+      "max": 67.1,
+      "mean": 32.45520833333333
+    },
+    "DiabetesPedigreeFunction": {
+      "min": 0.078,
+      "max": 2.42,
+      "mean": 0.47187630208333325
+    },
+    "Age": {
+      "min": 21.0,
+      "max": 81.0,
+      "mean": 33.240885416666664
+    }
+  },
+  "model_metrics": {
+    "accuracy": 72.08,
+    "precision": 63.41,
+    "recall": 48.15,
+    "f1": 54.74,
+    "roc_auc": 80.87
+  }
+}

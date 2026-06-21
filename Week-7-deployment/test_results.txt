@@ -1,0 +1,94 @@
+DIABETES PREDICTION API — VERIFIED TEST RESULTS
+==================================================
+Test run date: confirmed working locally on Flask development server (port 5000)
+
+TEST 1 — GET /
+Request:  GET http://127.0.0.1:5000/
+Response: 200 OK
+{
+  "project": "Diabetes Prediction API",
+  "status": "running",
+  "endpoints": {
+    "/predict": "POST — send patient data, get a prediction",
+    "/health": "GET — check API status",
+    "/model-info": "GET — model details and performance metrics"
+  }
+}
+
+TEST 2 — GET /health
+Request:  GET http://127.0.0.1:5000/health
+Response: 200 OK
+{
+  "status": "healthy",
+  "model_loaded": true
+}
+
+TEST 3 — GET /model-info
+Request:  GET http://127.0.0.1:5000/model-info
+Response: 200 OK
+{
+  "model_type": "Random Forest Classifier (tuned via GridSearchCV)",
+  "features_required": ["Pregnancies","Glucose","BloodPressure","SkinThickness",
+                         "Insulin","BMI","DiabetesPedigreeFunction","Age"],
+  "target": "Outcome (0 = No Diabetes, 1 = Diabetes)",
+  "performance_metrics": {
+    "accuracy": 72.08,
+    "precision": 63.41,
+    "recall": 48.15,
+    "f1": 54.74,
+    "roc_auc": 80.87
+  }
+}
+
+TEST 4 — POST /predict (high-risk patient profile)
+Request: POST http://127.0.0.1:5000/predict
+Body:
+{
+  "Pregnancies": 6, "Glucose": 148, "BloodPressure": 72, "SkinThickness": 35,
+  "Insulin": 0, "BMI": 33.6, "DiabetesPedigreeFunction": 0.627, "Age": 50
+}
+Response: 200 OK
+{
+  "prediction": 1,
+  "prediction_label": "Diabetes",
+  "probability_of_diabetes": 0.6791,
+  "confidence": 0.6791,
+  "input_received": {...}
+}
+RESULT: Correctly flagged as high diabetes risk (67.91% probability)
+
+TEST 5 — POST /predict (low-risk patient profile)
+Request: POST http://127.0.0.1:5000/predict
+Body:
+{
+  "Pregnancies": 1, "Glucose": 85, "BloodPressure": 66, "SkinThickness": 29,
+  "Insulin": 0, "BMI": 26.6, "DiabetesPedigreeFunction": 0.351, "Age": 31
+}
+Response: 200 OK
+{
+  "prediction": 0,
+  "prediction_label": "No Diabetes",
+  "probability_of_diabetes": 0.0538,
+  "confidence": 0.9462,
+  "input_received": {...}
+}
+RESULT: Correctly flagged as low diabetes risk (94.62% confidence of no diabetes)
+
+TEST 6 — POST /predict (missing fields — error handling)
+Request: POST http://127.0.0.1:5000/predict
+Body:
+{
+  "Pregnancies": 1, "Glucose": 85
+}
+Response: 400 Bad Request
+{
+  "error": "Missing required fields: ['BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']"
+}
+RESULT: API correctly rejects incomplete requests with a clear, actionable error message
+
+==================================================
+SUMMARY: All 6 endpoint tests passed. The API correctly loads the trained
+model, scaler, and imputer at startup, validates input, applies the same
+zero-as-missing preprocessing used during training, and returns sensible
+predictions with probability scores for both high-risk and low-risk patient
+profiles. Error handling correctly catches and reports missing fields.
